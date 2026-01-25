@@ -30,8 +30,19 @@ services:
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/atlas
       SPRING_DATASOURCE_USERNAME: atlas
       SPRING_DATASOURCE_PASSWORD: atlas
-      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+      SPRING_JPA_HIBERNATE_DDL_AUTO: validate
       SPRING_JPA_SHOW_SQL: true
+
+    develop:
+      watch:
+        # 🔁 Sync Java source changes
+        - action: sync
+          path: ./src
+          target: /app/src
+
+        # 🔨 Rebuild if dependencies change
+        - action: rebuild
+          path: pom.xml
 
 volumes:
   atlas_pgdata:
