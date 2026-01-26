@@ -17,13 +17,13 @@ pipeline {
             }
         }
 
-        stage('Deploy') {
+       stage('Deploy') {
             steps {
-                sh '''
-                  docker compose down
-                  docker compose up -d
-                '''
+            sh '''
+            docker compose -f docker-compose.prod.yml down
+            docker compose -f docker-compose.prod.yml up -d
+            '''
             }
-        }
+}
     }
 }
