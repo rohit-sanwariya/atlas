@@ -1,9 +1,7 @@
-version: "3.9"
 
 services:
   postgres:
     image: postgres:16
-    container_name: atlas-postgres
     environment:
       POSTGRES_DB: atlas
       POSTGRES_USER: atlas
@@ -19,8 +17,7 @@ services:
       retries: 5
 
   atlas:
-    image: atlas-app:latest   # 👈 built by Jenkins
-    container_name: atlas-app
+    image: atlas-app:latest  
     ports:
       - "8081:8080"
     depends_on:
