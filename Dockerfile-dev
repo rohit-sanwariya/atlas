@@ -6,11 +6,10 @@ WORKDIR /app
 COPY pom.xml .
 RUN mvn dependency:go-offline
 
-# Copy source (will be overridden by volume mount)
+# Copy source (will be overridden by volume mount in dev)
 COPY src ./src
 
-EXPOSE 8080
-EXPOSE 5005
+EXPOSE 8080  
+EXPOSE 5005   
 
-# Run Spring directly from source
-CMD ["mvn", "spring-boot:run"]
+CMD ["mvn", "spring-boot:run", "-Dspring-boot.run.jvmArguments=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005"]

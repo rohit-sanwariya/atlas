@@ -36,11 +36,9 @@ services:
       SPRING_DATASOURCE_PASSWORD: atlas
       SPRING_JPA_HIBERNATE_DDL_AUTO: validate
       SPRING_JPA_SHOW_SQL: true
-
-      # 👇 JVM DEBUG ENABLED
-      JAVA_TOOL_OPTIONS: >
-        -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005
-
+      SPRING_DOCKER_COMPOSE_ENABLED: false
+      
+ 
     develop:
       watch:
         - action: sync
