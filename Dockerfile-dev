@@ -1,0 +1,16 @@
+FROM maven:3.9.9-eclipse-temurin-21
+
+WORKDIR /app
+
+# Copy only pom first to cache dependencies
+COPY pom.xml .
+RUN mvn dependency:go-offline
+
+# Copy source (will be overridden by volume mount)
+COPY src ./src
+
+EXPOSE 8080
+EXPOSE 5005
+
+# Run Spring directly from source
+CMD ["mvn", "spring-boot:run"]

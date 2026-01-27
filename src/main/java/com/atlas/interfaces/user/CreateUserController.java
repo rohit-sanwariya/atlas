@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/users")
-public class UserController {
+public class CreateUserController {
     private final CreateUserUseCase createUserUseCase;
-    public UserController(CreateUserUseCase createUserUseCase) {
+    public CreateUserController(CreateUserUseCase createUserUseCase) {
         this.createUserUseCase = createUserUseCase;
     }
 
