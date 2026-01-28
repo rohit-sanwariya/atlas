@@ -18,7 +18,6 @@ public class GetUserByIdQueryHandler {
 
         User user = userRepository.findById(query.userId())
                 .orElseThrow(() -> new UserNotFoundException(query.userId()));
-
         return mapToView(user);
     }
 

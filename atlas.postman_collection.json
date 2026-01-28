@@ -1,0 +1,79 @@
+{
+  "info": {
+    "_postman_id": "75d96e38-babe-4b18-b9dc-53c09073fd7c",
+    "name": "atlas",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "9209750",
+    "_collection_link": "https://go.postman.co/collection/9209750-75d96e38-babe-4b18-b9dc-53c09073fd7c?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "http://localhost:8081/users",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"externalIdentity\": \"email:test@example.com\",\r\n    \"displayName\": \"Test User\"\r\n  }",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8081/users",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8081",
+          "path": [
+            "users"
+          ]
+        },
+        "description": "Generated from cURL: curl -X POST http://localhost:8081/users \\\r\n  -H \"Content-Type: application/json\" \\\r\n  -d '{\r\n    \"externalIdentity\": \"email:test@example.com\",\r\n    \"displayName\": \"Test User\"\r\n  }'\r\n"
+      },
+      "response": []
+    },
+    {
+      "name": "http://localhost:8081/users Copy",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"externalIdentity\": \"email:test@example.com\",\r\n    \"displayName\": \"Test User\"\r\n  }",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8081/users",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8081",
+          "path": [
+            "users"
+          ]
+        },
+        "description": "Generated from cURL: curl -X POST http://localhost:8081/users \\\r\n  -H \"Content-Type: application/json\" \\\r\n  -d '{\r\n    \"externalIdentity\": \"email:test@example.com\",\r\n    \"displayName\": \"Test User\"\r\n  }'\r\n"
+      },
+      "response": []
+    }
+  ]
+}
