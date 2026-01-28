@@ -16,6 +16,8 @@ spring:
     baseline-description: ${SPRING_FLYWAY_BASELINE_DESCRIPTION:Initial baseline}
     out-of-order: false
     validate-on-migrate: true
+    mixed: false
+    clean-disabled: true
 
   jpa:
     open-in-view: false
@@ -32,3 +34,7 @@ server:
   servlet:
     context-path: /api
 
+logging:
+  level:
+    org.flywaydb: DEBUG
+    org.flywaydb.core: DEBUG
