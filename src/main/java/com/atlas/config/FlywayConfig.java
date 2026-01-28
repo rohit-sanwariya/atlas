@@ -1,37 +1,24 @@
 package com.atlas.config;
 
-import org.flywaydb.core.Flyway;
-import org.springframework.boot.autoconfigure.flyway.FlywayProperties;
-import org.springframework.context.annotation.Bean;
+import org.springframework.boot.autoconfigure.flyway.FlywayConfigurationCustomizer;
 import org.springframework.context.annotation.Configuration;
-import javax.sql.DataSource;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 
 /**
- * Explicit Flyway configuration to ensure migrations run on startup
+ * Explicit Flyway configuration to ensure migrations run correctly on startup
  */
 @Configuration
 public class FlywayConfig {
 
-    @Autowired
-    private DataSource dataSource;
-
-    @Autowired(required = false)
-    private FlywayProperties flywayProperties;
-
     @Bean
-    public Flyway flyway() {
-        Flyway flyway = Flyway.configure()
-                .dataSource(dataSource)
-                .locations("classpath:db/migration")
-                .baselineOnMigrate(true)
-                .baselineVersion("0")
-                .baselineDescription("Initial baseline")
-                .outOfOrder(false)
-                .validateOnMigrate(true)
-                .load();
-
-        flyway.migrate();
-        return flyway;
+    public FlywayConfigurationCustomizer flywayConfigurationCustomizer() {
+        return configuration -> {
+            configuration.baselineOnMigrate(true);
+            configuration.baselineVersion("0");
+            configuration.baselineDescription("Initial baseline");
+            configuration.outOfOrder(false);
+            configuration.validateOnMigrate(true);
+            configuration.locations("classpath:db/migration");
+        };
     }
 }
