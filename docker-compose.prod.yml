@@ -37,6 +37,11 @@ services:
       SPRING_DATASOURCE_PASSWORD: atlas
       SPRING_JPA_HIBERNATE_DDL_AUTO: none
       SPRING_JPA_SHOW_SQL: false
+      SPRING_FLYWAY_ENABLED: "true"
+      SPRING_FLYWAY_LOCATIONS: "classpath:db/migration"
+      SPRING_FLYWAY_BASELINE_ON_MIGRATE: "true"
+      SPRING_FLYWAY_BASELINE_VERSION: "0"
+      SPRING_FLYWAY_BASELINE_DESCRIPTION: "Initial baseline"
 
 volumes:
   atlas_pgdata:
