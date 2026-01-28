@@ -35,7 +35,7 @@ services:
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/atlas
       SPRING_DATASOURCE_USERNAME: atlas
       SPRING_DATASOURCE_PASSWORD: atlas
-      SPRING_JPA_HIBERNATE_DDL_AUTO: validate
+      SPRING_JPA_HIBERNATE_DDL_AUTO: none
       SPRING_JPA_SHOW_SQL: false
 
 volumes:
